@@ -21,26 +21,41 @@ lazy val p3 = project
   )
 
 lazy val deps212only = Seq(
-  "com.lihaoyi" %% "autowire" % "0.2.6",
+  // THOSE ARE UNAVAILABLE FOR 2.13 AND 3
   "io.frees" %% "frees-core" % "0.8.2",
   "io.frees" %% "frees-effects" % "0.8.2",
   "io.frees" %% "frees-fetch" % "0.8.2",
   "io.frees" %% "frees-logging" % "0.8.2",
-  "org.scalatest" %% "scalatest" % "3.0.5",
-  "com.danielasfregola" %% "random-data-generator" % "2.4",
   "uk.co.callhandling" %% "freeswitch-scala-esl" % "2.1.14",
-  "ru.pavkin" %% "dtc-cats" % "2.1.0",
-  "ru.pavkin" %% "dtc-core" % "2.1.0",
-  "net.cakesolutions" %% "validated-config" % "1.1.2",
-  "com.github.pureconfig" %% "pureconfig" % "0.10.1",
-  "de.heikoseeberger" %% "akka-http-circe" % "1.22.0",
+  "net.cakesolutions" %% "validated-config" % "1.1.2", // 1.1.3
 
-  // causes conflicts
-  "io.gatling" % "gatling-core" % "3.3.0",
-  "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.3.0"
+
+  // Can be updated for 2.13
+  "com.lihaoyi" %% "autowire" % "0.2.6", // -> 0.3.3
+  "org.scalatest" %% "scalatest" % "3.0.5", // 3.2.17
+  "com.danielasfregola" %% "random-data-generator" % "2.4", // 2.9
+  "ru.pavkin" %% "dtc-cats" % "2.1.0", // 2.4.0
+  "ru.pavkin" %% "dtc-core" % "2.1.0", // 2.4.0
+  "com.github.pureconfig" %% "pureconfig" % "0.10.1", // 0.17.5
+  "de.heikoseeberger" %% "akka-http-circe" % "1.22.0", //1.39.2
+  "io.gatling" % "gatling-core" % "3.3.0", // 3.10.3
+  "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.3.0" // 3.10.3
 )
 
 lazy val deps213only = Seq(
+  // updates that work with 2.13
+  "com.lihaoyi" %% "autowire" % "0.3.3", 
+  "org.scalatest" %% "scalatest" % "3.2.0", 
+  "com.danielasfregola" %% "random-data-generator" % "2.9", 
+  "ru.pavkin" %% "dtc-cats" % "2.4.0", 
+  "ru.pavkin" %% "dtc-core" % "2.4.0", 
+  "com.github.pureconfig" %% "pureconfig" % "0.17.5", 
+  "de.heikoseeberger" %% "akka-http-circe" % "1.39.2", 
+  "io.gatling" % "gatling-core" % "3.10.3", 
+  "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.10.3",
+
+
+  // not available for 3
   "com.chuusai" %% "shapeless" % "2.3.3",
   "com.github.andr83" %% "scalaconfig" % "0.7",
   "com.github.cb372" %% "scalacache-caffeine" % "0.28.0",
@@ -53,9 +68,9 @@ lazy val deps213only = Seq(
   "com.lightbend.akka" %% "akka-stream-alpakka-s3" % "2.0.2",
   "com.lightbend.akka.discovery" %% "akka-discovery-kubernetes-api" % "1.0.10",
   "com.lightbend.akka.management" %% "akka-lease-kubernetes" % "1.0.10",
-  "com.lightbend.akka.management" %% "akka-management" % "1.0.10",
-  "com.lightbend.akka.management" %% "akka-management-cluster-bootstrap" % "1.0.10",
-  "com.lightbend.akka.management" %% "akka-management-cluster-http" % "1.0.9",
+  "com.lightbend.akka.management" %% "akka-management" % "1.4.1", // "1.0.10",
+  "com.lightbend.akka.management" %% "akka-management-cluster-bootstrap" % "1.4.1", //"1.0.10",
+  "com.lightbend.akka.management" %% "akka-management-cluster-http" % "1.4.1", //"1.0.9",
   "com.lihaoyi" %% "scalatags" % "0.7.0",
   "com.lihaoyi" %% "upickle" % "0.7.5",
   "com.sksamuel.elastic4s" %% "elastic4s-client-esjava" % "7.11.4",
@@ -93,7 +108,7 @@ lazy val deps213only = Seq(
   "io.kamon" %% "kamon-prometheus" % "2.2.2",
   "io.scalaland" %% "chimney" % "0.6.1",
   "io.suzaku" %% "boopickle" % "1.3.1",
-  "org.apache.kafka" %% "kafka" % "2.6.0",
+  "org.apache.kafka" %% "kafka" % "3.6.1", //"2.6.0",  conflicts with akka actor on java8-compatibility (0.9.1 vs 1.0.0)
   "org.apache.kafka" %% "kafka-streams-scala" % "2.6.0",
   "org.mongodb.scala" %% "mongo-scala-driver" % "4.5.0",
   "org.scalacheck" %% "scalacheck" % "1.14.0",
