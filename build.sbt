@@ -43,41 +43,52 @@ lazy val deps212only = Seq(
 )
 
 lazy val deps213only = Seq(
-  // updates that work with 2.13
-  "com.lihaoyi" %% "autowire" % "0.3.3", 
-  "org.scalatest" %% "scalatest" % "3.2.0", 
-  "com.danielasfregola" %% "random-data-generator" % "2.9", 
-  "ru.pavkin" %% "dtc-cats" % "2.4.0", 
-  "ru.pavkin" %% "dtc-core" % "2.4.0", 
-  "com.github.pureconfig" %% "pureconfig" % "0.17.5", 
-  "de.heikoseeberger" %% "akka-http-circe" % "1.39.2", 
+  // can be updated for 3
+  "org.scalatest" %% "scalatest" % "3.2.0", // 3.2.17
   "io.gatling" % "gatling-core" % "3.10.3", 
   "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.10.3",
+  "com.lihaoyi" %% "scalatags" % "0.7.0", // 0.12.0
+  "com.lihaoyi" %% "upickle" % "0.7.5", //NOT FOR 3 cross (later version available)
+  "com.danielasfregola" %% "random-data-generator" % "2.9", // NOT FOR 3, cross
+
+
+
+  // updates that work with 2.13, NOT AVAILABLE FOR 3
+  "com.lihaoyi" %% "autowire" % "0.3.3", // NOT FOR 3
+  "ru.pavkin" %% "dtc-cats" % "2.4.0", //NOT FOR 3
+  "ru.pavkin" %% "dtc-core" % "2.4.0", //NOT FOR 3
+  "com.github.pureconfig" %% "pureconfig" % "0.17.5", // NOT FOR 3
+  "de.heikoseeberger" %% "akka-http-circe" % "1.39.2", // NOT FOR 3
 
 
   // not available for 3
-  "com.chuusai" %% "shapeless" % "2.3.3",
-  "com.github.andr83" %% "scalaconfig" % "0.7",
-  "com.github.cb372" %% "scalacache-caffeine" % "0.28.0",
-  "com.github.cb372" %% "scalacache-core" % "0.28.0",
-  "com.github.cb372" %% "scalacache-redis" % "0.28.0",
+  "com.chuusai" %% "shapeless" % "2.3.3", // NOT FOR 3
+  "com.github.andr83" %% "scalaconfig" % "0.7", // NOT FOR 3, cross
+
+  "com.github.cb372" %% "scalacache-caffeine" % "0.28.0", //1.0.0-M6, cross
+  "com.github.cb372" %% "scalacache-core" % "0.28.0", //1.0.0-M6, cross
+  "com.github.cb372" %% "scalacache-redis" % "0.28.0", //1.0.0-M6, cross
+
   "com.lightbend.akka" %% "akka-stream-alpakka-cassandra" % "2.0.2",
   "com.lightbend.akka" %% "akka-stream-alpakka-csv" % "2.0.2",
   "com.lightbend.akka" %% "akka-stream-alpakka-elasticsearch" % "3.0.0-M1",
   "com.lightbend.akka" %% "akka-stream-alpakka-file" % "2.0.2",
   "com.lightbend.akka" %% "akka-stream-alpakka-s3" % "2.0.2",
+
   "com.lightbend.akka.discovery" %% "akka-discovery-kubernetes-api" % "1.0.10",
   "com.lightbend.akka.management" %% "akka-lease-kubernetes" % "1.0.10",
   "com.lightbend.akka.management" %% "akka-management" % "1.4.1", // "1.0.10",
   "com.lightbend.akka.management" %% "akka-management-cluster-bootstrap" % "1.4.1", //"1.0.10",
   "com.lightbend.akka.management" %% "akka-management-cluster-http" % "1.4.1", //"1.0.9",
-  "com.lihaoyi" %% "scalatags" % "0.7.0",
-  "com.lihaoyi" %% "upickle" % "0.7.5",
+
+
   "com.sksamuel.elastic4s" %% "elastic4s-client-esjava" % "7.11.4",
   "com.sksamuel.elastic4s" %% "elastic4s-core" % "7.11.4",
   "com.sksamuel.elastic4s" %% "elastic4s-json-circe" % "7.11.4",
+
   "com.thesamet.scalapb" %% "scalapb-json4s" % "0.9.3",
   "com.thesamet.scalapb" %% "scalapb-runtime" % "0.9.8",
+
   "com.typesafe.akka" %% "akka-actor" % "2.6.12",
   "com.typesafe.akka" %% "akka-cluster" % "2.6.12",
   "com.typesafe.akka" %% "akka-cluster-sharding" % "2.6.12",
@@ -96,27 +107,51 @@ lazy val deps213only = Seq(
   "com.typesafe.akka" %% "akka-stream" % "2.6.12",
   "com.typesafe.akka" %% "akka-stream-kafka" % "2.0.4",
   "com.typesafe.akka" %% "akka-testkit" % "2.6.12",
+
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
+
   "dev.zio" %% "zio-interop-cats" % "2.2.0.1",
+
   "io.circe" %% "circe-core" % "0.13.0",
   "io.circe" %% "circe-generic" % "0.13.0",
   "io.circe" %% "circe-generic-extras" % "0.12.2",
   "io.circe" %% "circe-parser" % "0.13.0",
+
   "io.getquill" %% "quill-cassandra" % "3.6.0-RC3",
   "io.getquill" %% "quill-jdbc" % "3.6.1",
+
   "io.kamon" %% "kamon-bundle" % "2.2.2",
   "io.kamon" %% "kamon-prometheus" % "2.2.2",
+
   "io.scalaland" %% "chimney" % "0.6.1",
   "io.suzaku" %% "boopickle" % "1.3.1",
+
   "org.apache.kafka" %% "kafka" % "3.6.1", //"2.6.0",  conflicts with akka actor on java8-compatibility (0.9.1 vs 1.0.0)
   "org.apache.kafka" %% "kafka-streams-scala" % "2.6.0",
   "org.mongodb.scala" %% "mongo-scala-driver" % "4.5.0",
+
   "org.scalacheck" %% "scalacheck" % "1.14.0",
+
   "org.typelevel" %% "cats-core" % "2.2.0",
   "org.typelevel" %% "cats-effect" % "2.2.0"
 )
 
 lazy val deps3 = Seq(
+  "com.lihaoyi" %% "scalatags" % "0.12.0", // 0.12.0
+  ("com.lihaoyi" %% "upickle" % "0.7.5").cross(CrossVersion.for3Use2_13),
+  ("com.danielasfregola" %% "random-data-generator" % "2.9").cross(CrossVersion.for3Use2_13), // NOT FOR 3
+
+
+  "org.scalatest" %% "scalatest" % "3.2.17",
+  "io.gatling" % "gatling-core" % "3.10.3", 
+  "io.gatling.highcharts" % "gatling-charts-highcharts" % "3.10.3",
+  ("com.github.cb372" %% "scalacache-caffeine" % "0.28.0").cross(CrossVersion.for3Use2_13),
+  ("com.github.cb372" %% "scalacache-core" % "0.28.0").cross(CrossVersion.for3Use2_13), //1.0.0-M6
+  ("com.github.cb372" %% "scalacache-redis" % "0.28.0").cross(CrossVersion.for3Use2_13), //1.0.0-M6
+
+  ("com.github.andr83" %% "scalaconfig" % "0.7").cross(CrossVersion.for3Use2_13), // NOT FOR 3
+
+
   "biz.paluch.logging" % "logstash-gelf" % "1.11.1",
   "ch.qos.logback" % "logback-classic" % "1.2.3",
   "com.amazonaws" % "aws-java-sdk" % "1.11.845",
